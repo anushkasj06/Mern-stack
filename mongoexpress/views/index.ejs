@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <h2 style="display: block; text-align: center; color: black; background-color: rgb(160, 192, 240);">All Chats!</h2>
+    <br><br>
+    <form action="/chats/new" method="GET">
+        <button class="new-chat-btn">New Chat</button>
+    </form>
+    <br><br>
+    <% for(let chat of chats) { %>
+        <div class="chat">
+            <h3>From :<i> <%= chat.from %> </i></h3>
+            <div class="msg">
+                <p>Message : <%= chat.msg %></p>
+                <form method="GET" action="/chats/<%= chat._id %>/edit">
+                    <button class="edit-btn">edit</button>
+                </form>
+                <form method="POST" action="/chats/<%= chat._id %>?_method=DELETE">
+                    <button class="delete-btn">delete</button>
+                </form>
+            </div>
+            <p >Received By : <i> <%= chat.to %> </i></p>
+            <hr>
+            <p><%= chat.created_at.toString().split(" ")[4] %></p>
+            <p><%= chat.created_at.toString().split(" ").slice(0,4).join("-") %></p>
+
+
+        </div>
+        <br><br>
+    <% } %>
+    <footer>
+        <p style="text-align: center;">Made with ❤️ by anushka</p>
+    </footer>
+
+</body>
+<script src="app.js"></script>
+</html>

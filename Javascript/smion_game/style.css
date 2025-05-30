@@ -1,0 +1,45 @@
+body {
+    text-align: center;
+}
+
+.btn {
+    height: 200px;
+    width: 200px;
+    border-radius: 20%;
+    border: 10px solid black;
+    font-size: 20px;
+    margin: 1rem;
+}
+
+.btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.line-one, .line-two {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Make sure each line takes the full width */
+}
+
+
+.green{
+    background-color: green;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.flash{
+    background-color: white;
+}

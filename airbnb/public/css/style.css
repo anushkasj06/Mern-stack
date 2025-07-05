@@ -1,0 +1,178 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex:1;
+}
+
+/* navbar */
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass{
+    font-size: 2rem;
+    color:#fe424d;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+
+/* footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    color: #fe424d;
+    text-decoration: underline;
+}
+
+.fa-brands{
+    font-size: medium;
+}
+
+.f-info-socials , .f-info-brand, .f-info-links{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    margin-right: 1rem;
+    font-size: 1rem;
+
+}
+
+.f-info{
+    display: flex;
+    background-color:#ebebeb ;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+    color: #222222 !important;
+    height: 22rem;
+}
+
+/* Cards */
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 3rem;
+}
+
+.card-img-top{
+    width: 100% !important;
+    border-radius: 1rem !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+    margin-top: 1rem !important;
+}
+
+.card-text{
+    font-weight: 400  !important;
+
+}
+
+/* Card Effect */
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.5;
+    background-color: white;
+}
+
+
+/* create new */
+
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+    color: white !important;
+}
+
+
+/* Show style */
+
+.show-img{
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.btns{
+    display: flex;
+    
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* Home page */
+ body {
+            font-family: 'Poppins', sans-serif; /* A nice, modern font */
+        }
+        .navbar-brand img {
+            height: 40px; /* Adjust logo height */
+        }
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2h8ZW58MHx8MHx8&w=1000&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .search-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        .search-form .form-control {
+            margin-right: 10px;
+        }
+        .listing-card {
+            margin-bottom: 30px;
+            transition: transform .2s; /* Animation */
+        }
+        .listing-card:hover {
+            transform: scale(1.03); /* Grow */
+        }
+        .listing-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            margin-top: 50px;
+        }

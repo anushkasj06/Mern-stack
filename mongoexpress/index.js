@@ -70,7 +70,7 @@ app.put("/chats/:id", (req, res) => {
   const {msg} = req.body;
   Chat.findByIdAndUpdate(id, { msg: msg }, { runValidators: true, new: true })
     .then(() => {
-      console.log("Chat updated");
+      
       res.redirect("/chats");
     })
     .catch(err => {

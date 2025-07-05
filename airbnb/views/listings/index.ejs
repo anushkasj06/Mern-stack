@@ -1,0 +1,30 @@
+ <% layout("/layouts/boilerplate") %>
+ 
+ <body>
+    <div class="main" style="margin-top: 3rem;">
+        <h3>All Listings</h3>
+    <p>Welcome to AirBnb! Here are the listings available:</p>
+    <!-- <form action="/listings/new" method="GET">
+        <button>Create New Listing</button>
+    </form> -->
+
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1" style="margin-top: 2rem;">
+        <% for(let listing of listings) {%>
+            <a href="/listings/<%= listing.id %>"  style="text-decoration: none; color: black; ">
+                <div class="card col listing-card" >
+    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_img"  style="height: 20rem;" >
+    <div class="card-img-overlay"><%=listing.title%></div>
+    <div class="card-body">
+        <p class="card-text"><b><%= listing.title %></b>
+            <br>
+            <i><%= listing.location %>  &nbsp; <%= listing.country %></i>
+        </p>
+        <p class="card-text">&#8377; <%= listing.price %> /night</p>
+    </div>
+    </div>
+            </a>
+    <% }%>
+    </div>
+    </div>
+</body>

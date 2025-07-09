@@ -5,9 +5,10 @@
             <h3 class="mt-3"><%= listing.title %></h3>
         </div>
         <div class="col-md-6 offset-3 mt-3 listing-card">
-        <div class="card">
-            <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_img">
+        <div class="card" style="border: none;">
+            <img src="<%= listing.image.url %>" class="card-img-top show-img " style="height: 20rem;" alt="listing_img">
             <div class="card-body">
+                <p class="card-text"><i>Owned by: <%= listing.owner.username %></i></p>
                 <p class="card-text">
                     Description: <%= listing.description %>
                     <br>
@@ -22,24 +23,38 @@
         </div>
     </div>
 
-    <div class="btns mb-5">
+    <% if( currentUser && currentUser._id.equals(listing.owner._id)){%>
+        <div class="btns mb-5">
         <a href="/listings/<%= listing.id %>/edit" style="height: 2.5rem;" class="btn btn-dark col-1 add-btn offset-3">Edit Listing</a>
         <br><br>
         <form method="POST" style="margin-left: 2rem;" action="/listings/<%= listing.id %>?_method=DELETE">
             <button class="btn btn-dark " type="submit">Delete Listing</button>
         </form>
-        </div>
+    </div>
+    <%}%>
     </div>
     </div>
-    <hr>
+   
 
     <div class="col-8 offset-2 mt-5">
+        <% if(currentUser) { %>
   <h4>Leave a Review</h4>
   <form class="mb-3 needs-validation" method="POST" action="/listings/<%= listing.id %>/reviews" novalidate>
     <div class="mb-3 mt-3">
-      <label for="rating" class="form-label">Rating</label>
-      <input type="range" class="form-range" id="rating" name="review[rating]" min="1" max="5" required>
-    </div>
+        <fieldset class="starability-heart">
+            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+            <label for="first-rate1" title="Terrible">1 star</label>
+            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+            <label for="first-rate2" title="Not good">2 stars</label>
+            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+            <label for="first-rate3" title="Average">3 stars</label>
+            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+            <label for="first-rate4" title="Very good">4 stars</label>
+            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+            <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+     </div>
     <div class="mb-3 mt-3">
       <label for="comment" class="form-label">Comment</label>
       <textarea id="comment" class="form-control" name="review[comment]" rows="2" cols="30" required></textarea>
@@ -50,6 +65,7 @@
       <button type="submit" class="btn btn-outline-dark mt-2">Submit Review</button>
     </div>
   </form>
+  <%}%>
 </div>
 
 <hr>
@@ -58,14 +74,16 @@
     <% for(let review of listing.review) { %>
         <div class="card col-md-6 offset-3 mb-3">
             <div class="card-body">
-                <h5 class="card-title">Jane Doe</h5>
+                <h5 class="card-title" style="color: red;">@<%=review.author.username%></h5>
                 <p class="card-text">
-                    <strong>Rating:</strong> <%= review.rating %> stars<br>
+                     <p class="starability-result" data-rating="<%=review.rating%>"></p>
                     <strong>Comment:</strong> <%= review.comment %>
                 </p>
             </div>
             <form action="/listings/<%= listing.id %>/reviews/<%= review.id %>?_method=DELETE" method="POST" class="mb-3">
-                <button class="btn btn-danger col-2 offset-9 mb-2" type="submit">Delete</button>
+                <% if(currentUser && currentUser._id.equals(review.author._id)){%>
+                    <button class="btn btn-danger col-2 offset-9 mb-2" type="submit">Delete</button>
+                <%}%>
             </form>
         </div>
     <% } %>

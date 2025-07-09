@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Review = require('./Review.js');
 const Joi = require('joi');
+const User = require('./user.js');
 
 // Mongoose Listing schema
 const ListingSchema = new Schema({
@@ -24,7 +25,11 @@ const ListingSchema = new Schema({
     review: [{
         type: Schema.Types.ObjectId,
         ref: 'Review'
-    }]
+    }],
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 // Delete associated reviews after listing deletion
